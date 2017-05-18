@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Registrar nuevo Usuario{% endblock %}
+
+{% block content %}
+
+    <form method="POST"  class="modal-body">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <button type="submit" class="glyphicon glyphicon-floppy-saved btn btn-success btn-sm">&nbsp;Guardar</button>
+        <a href="{% url 'account:usuario_list' %}" class="glyphicon glyphicon-ban-circle btn btn-warning btn-sm">&nbsp;Cancelar</a>
+    </form>
+    
+{% endblock %}

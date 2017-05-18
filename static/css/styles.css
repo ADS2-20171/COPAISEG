@@ -1,0 +1,17 @@
+h1 {
+    background-color: #f00;
+    color: #fff;
+}
+
+.navbar-inverse {
+    background-color: DarkCyan;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: DarkCyan;
+}
+
+.color {
+    padding-left: 5px;
+}

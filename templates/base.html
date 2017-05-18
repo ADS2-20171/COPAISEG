@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hola</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Copaiseg</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Perfil</a></li>
+                            <li><a href="#">Mensajes</a></li>
+                            <li><a href="#">Opciones</a></li>
+                            <li><a href="#">Cambiar Contraseña</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <nav class="col-sm-2 col-md-2 container-fluid color">
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Acopio</a></li>
+            <li role="presentation"><a href="#">Kaja</a></li>
+            <li><a href="#">Almacen</a></li>
+            <li><a href="#">Configuración</a></li>
+        </ul>
+    </nav>
+    <div class="col-sm-10 col-md-10">
+        {% block content %} {% endblock content %}
+    </div>
+    </div>
+    <script src="{% static 'jquery/jquery-3.2.1.js' %}"></script>
+    <script src="{% static 'bootstrap/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

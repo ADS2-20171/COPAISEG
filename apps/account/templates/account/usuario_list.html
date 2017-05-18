@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1>Lista - Usuarios</h1>
+<div style="margin-bottom: 1em;">
+    <a class="btn btn-success" href="{% url 'account:usuario_add' %}">
+        <span class="glyphicon glyphicon-plus btn-sm"></span>&nbsp; Nuevo Usuario
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="success">
+                <th class="text-center">N°</th>
+                <th class="text-center">Nombres y Apellidos</th>
+                <th class="text-center">Username</th>
+                <th class="text-center">Activo</th>
+                <th class="text-center">Activo</th>
+                <th class="text-center">Ultima Inicio de Sesion</th>
+                <th class="text-center">Fecha de Vencimiento</th>
+                <th class="btn-actions col-blocked text-center">Acciónes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in object_list %}
+            <tr>
+                <td>{{ d.id }}</td>
+                <td>{{ d.persona }}</td>
+                <td>{{ d.username }}</td>
+                <td>{{ d.is_active }}</td>
+                <td>{{ d.is_staff }}</td>
+                <td>{{ d.last_login }}</td>
+                <td>{{ d.date_joined }}</td>
+                <td>
+                    <a class="glyphicon glyphicon-pencil btn btn-info btn-sm" href="{% url 'account:usuario_update' d.id %}"> Edit</a>
+                    <a class="glyphicon glyphicon-trash btn btn-danger btn-sm text-bold" href="{% url 'account:usuario_delete' d.id %}"> Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+    
+{% endblock %}
