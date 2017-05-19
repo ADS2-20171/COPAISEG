@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     # add
     'apps.account',
     'apps.acopio',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
