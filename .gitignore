@@ -1,5 +1,6 @@
 *.pyc
-<<<<<<< HEAD
-=======
 ve_*
->>>>>>> 185dc3d79cd74e1474a90daa66a55cfcbf08f220
+__pycache__/
+db.sqlite3
+media
+

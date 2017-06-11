@@ -6,6 +6,8 @@ from .views import (PersonaListView, PersonaCreateView,
 
 
 urlpatterns = [
+    # url(r'$', IndexView.as_view(), name="index"),
+
     # URLS PERSONA
     url(r'^persona/listar/$', PersonaListView.as_view(), name="persona_list"),
     url(r'^persona/crear/$', PersonaCreateView.as_view(), name="persona_add"),

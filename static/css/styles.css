@@ -1,9 +1,8 @@
 h1 {
-    background-color: #f00;
-    color: #fff;
+    color: fff;
 }
 
-.navbar-inverse {
+.skin-blue .main-header .navbar, .skin-blue .main-header .logo {
     background-color: DarkCyan;
 }
 

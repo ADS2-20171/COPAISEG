@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
+{% block title %}Lista de Usuarios{% endblock %}
+{% block titleheader %}Lista de Usuarios{% endblock titleheader %}
 
 {% block content %}
 
-<h1>Lista - Usuarios</h1>
 <div style="margin-bottom: 1em;">
     <a class="btn btn-success" href="{% url 'account:usuario_add' %}">
-        <span class="glyphicon glyphicon-plus btn-sm"></span>&nbsp; Nuevo Usuario
+        <i class="fa fa-plus-circle fa-lg"></i>&nbsp; Nuevo Usuario
     </a>
 </div>
 
@@ -35,13 +36,35 @@
                 <td>{{ d.last_login }}</td>
                 <td>{{ d.date_joined }}</td>
                 <td>
-                    <a class="glyphicon glyphicon-pencil btn btn-info btn-sm" href="{% url 'account:usuario_update' d.id %}"> Edit</a>
-                    <a class="glyphicon glyphicon-trash btn btn-danger btn-sm text-bold" href="{% url 'account:usuario_delete' d.id %}"> Delete</a>
+                    <a class="btn btn-info btn-sm" href="{% url 'account:usuario_update' d.id %}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i>&nbsp; Edit</a>
+                    <a class="btn btn-danger btn-sm text-bold" href="{% url 'account:usuario_delete' d.id %}"><i class="fa fa-trash fa-lg" aria-hidden="true"></i>&nbsp; Delete</a>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
+
+{% if is_paginated %}
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; Previous</a></li>
+        {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+        {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+                <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}">Next &raquo;</a></li>
+        {% else %}
+            <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+    </ul>
+{% endif %}
     
 {% endblock %}
