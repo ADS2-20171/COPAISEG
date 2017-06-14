@@ -1,10 +1,11 @@
 from django.conf.urls import url
-from .views import RegistroUsuario
+from .views import RegistroUsuario, Logeo, Inicio
+from . import views
+
 
 urlpatterns = [
-    url(r'^registrar$', RegistroUsuario.as_view(), name='acopio_list'),
-    # url(r'^post/crear/', PostCreateView.as_view(), name='post_add'),
-    # url(r'^post/actualizar/(?P<pk>[^/]+)$', PostUpdateView.as_view(), name='post_update'),
-    # url(r'^post/eliminar/(?P<pk>[^/]+)$', PostDeleteView.as_view(), name='post_delete'),
-
+    url(r'^registrar/$', RegistroUsuario.as_view(), name="registrarUser"),
+    url(r'^login/$', Logeo.as_view(), name="login"),
+    url(r'^salir/$', views.LogOut, name="logout"),
+    url(r'^menu/', Inicio.as_view(), name="index"),
 ]

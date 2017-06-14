@@ -1,9 +1,11 @@
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 from .forms import PersonaForm
-from .models import Person, User
+from .models import Persona
 
 
 # class IndexView(ListView):
@@ -13,25 +15,25 @@ from .models import Person, User
 
 # VIEW Persona
 class PersonaListView(ListView):
-    model = Person
+    model = Persona
     template_name = "account/persona_list.html"
     context_object_name = 'persons'  # Default: object_list
     paginate_by = 7
-    queryset = User.objects.all()  # Default: Model.objects.all()
+    queryset = Persona.objects.all()  # Default: Model.objects.all()
 
     def get_queryset(self):
-        return Person.objects.all()
+        return Persona.objects.all()
 
 
 class PersonaCreateView(CreateView):
-    model = Person
+    model = Persona
     form_class = PersonaForm
     template_name = 'account/persona_form.html'
     success_url = reverse_lazy('account:persona_list')
 
 
 class PersonaUpdateView(UpdateView):
-    model = Person
+    model = Persona
     form_class = PersonaForm
     template_name = 'account/persona_form.html'
     success_url = reverse_lazy('account:persona_list')
@@ -42,7 +44,7 @@ class PersonaUpdateView(UpdateView):
 
 
 class PersonaDeleteView(DeleteView):
-    model = Person
+    model = Persona
     template_name = 'account/persona_delete.html'
     success_url = reverse_lazy('account:persona_list')
 

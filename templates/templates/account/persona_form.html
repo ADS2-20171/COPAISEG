@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+
 {% block title %}Registrar nuevo Usuario{% endblock %}
-{% block titleheader %}Registro de Usuarios{% endblock titleheader %}
+{% block titleheader %}Registro de Personas{% endblock titleheader %}
 
 {% block content %}
 
@@ -11,7 +12,7 @@
         {{ form|crispy }}
 
         <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>&nbsp;Guardar</button>
-        <a href="{% url 'account:usuario_list' %}" class="btn btn-warning btn-sm"><i class="fa fa-ban fa-lg" aria-hidden="true"></i>&nbsp;Cancelar</a>
+        <a href="{% url 'account:persona_list' %}" class="btn btn-warning btn-sm"><i class="fa fa-ban fa-lg" aria-hidden="true"></i>&nbsp;Cancelar</a>
     </form>
-    
-{% endblock %}
+
+{% endblock content %}

@@ -1,13 +1,13 @@
 # encoding: utf-8
 from django import forms
 
-from .models import Person, User
+from .models import Persona
 
 
 class PersonaForm(forms.ModelForm):
 
     class Meta:
-        model = Person
+        model = Persona
         fields = ['first_name', 'last_name', 'identity_type',
                   'identity_num', 'photo', 'email', 'birth_date']
 

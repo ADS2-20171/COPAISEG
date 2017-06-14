@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 
 import os
+from django.core.urlresolvers import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,8 +44,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     # add plus
     'apps.account',
-    'apps.acopio',
     'apps.usuario',
+    'apps.acopio',
 ]
 
 MIDDLEWARE = [
@@ -79,12 +80,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'copaiseg.wsgi.application'
 
-AUTH_USER_MODEL = 'account.User'
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
+DATABASESno = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'copaiseg',
@@ -95,7 +94,7 @@ DATABASES = {
     }
 }
 
-DATABASESno = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -137,11 +136,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 
-# Static files (CSS, JavaScript, Images)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
 
@@ -150,7 +151,4 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-
-STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = reverse_lazy('account:persona_list')

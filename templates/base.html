@@ -168,7 +168,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{% url 'usuario:logout' %}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -200,7 +200,7 @@
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-home fa-lg"></i> <span>Home</span></a></li>
+        <li class="active"><a href="{% url 'usuario:index' %}"><i class="fa fa-home fa-lg"></i> <span>Home</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-cart-plus fa-lg"></i> <span>Acopio</span>
             <span class="pull-right-container">

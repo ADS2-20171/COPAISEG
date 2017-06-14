@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import models
 
 
-class Person(models.Model):
+class Persona(models.Model):
     """Model Person.Model for authenticate user and save personal dates."""
     DNI = 'DNI'
     FOREING_CARD = 'FC'
@@ -31,23 +31,3 @@ class Person(models.Model):
 
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
-
-
-class User(AbstractUser):
-    u"""Custom Users."""
-    persona = models.OneToOneField(
-        Person, verbose_name="Person", blank=True, null=True)
-    updated_at = models.DateTimeField("Updated at", auto_now=True)
-    created_at = models.DateTimeField("Created at", auto_now_add=True)
-    objects = UserManager()
-
-    class Meta:
-        verbose_name = "User"
-        verbose_name_plural = "Users"
-        permissions = (
-            ('list_user', 'Can list user'),
-            ('get_user', 'Can get user'),
-        )
-
-    def __str__(self):
-        return self.username

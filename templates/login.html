@@ -12,7 +12,7 @@
 <body>
 
 <form class="login-form" method="POST">
-    <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
     <img src="../../static/img/logo.png" height="100" width="100">
 
     {% csrf_token %}
@@ -23,7 +23,7 @@
     {{ form.password.errors }}
     
     <input class="login-form_submit" type="submit" value="Ingresar">
-    <a class="login-form_link" href="{% url 'usuario:registrarUser' %}">Registrarse</a>
+    <a class="login-form_link" href="{% url 'usuario:index' %}">Registrarse</a>
 </form>
  
 </body>

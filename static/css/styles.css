@@ -14,3 +14,91 @@ h1 {
 .color {
     padding-left: 5px;
 }
+
+* {
+    box-sizing: border-box;
+    border: none;
+}
+
+body {
+    background: linear-gradient(
+                220deg,
+                seagreen,
+                rgba(0,0,0,.8)
+                );
+
+    font-family: sans-serif;
+    background-image: url(../img/login-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+img {
+    max-width: 100%;
+    display:block;
+    margin:auto;
+    margin-bottom: 1.5em;
+}
+
+.login-form {
+    width: 50%;
+    max-width: 400px;
+    background: silver;
+    margin: 5em auto;
+    padding: 2em 1em;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: .8em;
+}
+
+.login-form_input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.2em;
+    line-height: 2.2;
+    padding: 0 1em;
+    text-align: center;
+}
+
+.login-form_submit {
+    display: block;
+    width: 80%;
+    background: teal;
+    color: #fff;
+    line-height: 2.2em;
+    text-transform: uppercase;
+    font-size: 1em;
+    margin: auto;
+    cursor: pointer;
+    border-radius: .5em;
+}
+
+.login-form_submit:hover {
+    background: #005650;
+}
+
+.login-form_link {
+    display: block;
+    text-align: center;
+    margin-top: 1.3em;
+    text-decoration: none;
+    font-size: .9em;
+}
+
+.login-form_link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px){
+    .login-form {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px){
+    .login-form {
+        width: 60%;
+    }
+}
+
