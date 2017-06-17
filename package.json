@@ -1,0 +1,19 @@
+{
+  "name": "copaiseg",
+  "version": "1.0.0",
+  "description": "1. [Historia de usuario](https://docs.google.com/spreadsheets/d/1ewsCVKoSksruq_XLSN0PL15HrfhP53r7SokFJ1KugMs/edit?usp=sharing)\r 2. [Arquitectura](https://docs.google.com/document/d/1JA-EA5gxPWOCA1i7ot7z1WmIeJkE7yzFVXh66WrxPvw/edit?usp=sharing)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ADS2-20171/copaiseg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ADS2-20171/copaiseg/issues"
+  },
+  "homepage": "https://github.com/ADS2-20171/copaiseg#readme"
+}

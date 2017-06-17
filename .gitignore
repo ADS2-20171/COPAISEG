@@ -1,6 +1,4 @@
 *.pyc
-ve_*
-__pycache__/
-db.sqlite3
-media
+
+copa
 
