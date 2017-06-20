@@ -52,7 +52,6 @@ class Acopio(models.Model):
 
 
 class DetalleAcopio(models.Model):
-
     parcela = models.ForeignKey(Parcela, on_delete=models.CASCADE)
     acopio = models.ForeignKey(Acopio)
     kilos = models.DecimalField(max_digits=20, decimal_places=2)
