@@ -41,4 +41,4 @@ class UsuarioLogeoForm(forms.Form):
         else:
             user = User.objects.get(username=self.cleaned_data['username'])
             if not user.check_password(self.cleaned_data['password']):
-                self.add_error('password', 'El password no existe')
+                self.add_error('password', 'Password Incorrecto')

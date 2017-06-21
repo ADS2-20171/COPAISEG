@@ -31,10 +31,8 @@
   <!-- Main Header -->
 <header class="main-header">
 
-    <!-- Logo -->
-    <a href="index2.html" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>copaiseg</b></span>
+    <a href="#" class="logo">
+      <span class="logo-mini"><b>ACO</b></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Copaiseg</b></span>
     </a>
@@ -143,36 +141,20 @@
               </li>
             </ul>
           </li>
-          <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
-              <img src="{% static 'dist/img/cris.jpg' %}" class="user-image" alt="User Image">
-              <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">{{ user.persona.first_name}}</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
-              <li class="user-header">
-                <img src="{% static 'dist/img/cris.jpg' %}" class="img-circle" alt="User Image">
 
-                <p>
-                  Cristhian-Copaiseg Developer
-                  <small>Mayo . 2017</small>
-                </p>
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-info btn-sm">Perfil</a>
-                </div>
-                <div class="pull-right">
-                  <button class="btn btn-danger">salir</button>
-                </div>
-              </li>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bienvenido: {{ user.username }}<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a></li>
+              <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Mensajes</a></li>
+              <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Opciones</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="{% url 'usuario:logout' %}"><i class="fa fa-power-off" aria-hidden="true"></i> Log Out</a></li>
             </ul>
           </li>
+        </ul>
+
         </ul>
       </div>
     </nav>
