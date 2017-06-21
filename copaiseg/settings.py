@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.account',
     'apps.usuario',
     'apps.acopio',
+    'apps.kaja',
 ]
 
 MIDDLEWARE = [
