@@ -8,8 +8,8 @@ class Almacen(models.Model):
     telefono = models.CharField(max_length=8)
 
     class Meta:
-        verbose_name = "Producto"
-        verbose_name_plural = "Producto"
+        verbose_name = "Almacen"
+        verbose_name_plural = "Almacenes"
 
     def __str__(self):
         return self.persona.first_name
@@ -21,7 +21,7 @@ class Categoria(models.Model):
 
     class Meta:
         verbose_name = "Categoria"
-        verbose_name_plural = "Categoria"
+        verbose_name_plural = "Categorias"
 
     def __str__(self):
         return self.categoria
@@ -29,11 +29,26 @@ class Categoria(models.Model):
 
 class unidadesmedida(models.Model):
 
-    unidadM = models.CharField(max_length=100)
+    UnidadMedida = models.CharField(max_length=100)
 
     class Meta:
         verbose_name = "Unidades de medida"
-        verbose_name_plural = "CUnidades de medida"
+        verbose_name_plural = "Unidades de medida"
 
     def __str__(self):
         return self.unidaM
+
+
+class Producto(models.Model):
+
+    nombre = models.CharField(max_length=100)
+    unidadM = models.ForeignKey(unidadesmedida, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    detalle = models.CharField(max_length=200)
+
+    class Meta:
+        verbose_name = "Productos"
+        verbose_name_plural = "Productos"
+
+    def __str__(self):
+        return self.inidadM.categoria
