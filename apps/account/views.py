@@ -7,6 +7,10 @@ from django.contrib.auth.models import User
 from .forms import PersonaForm
 from .models import Persona
 
+import json
+
+from django.http import HttpResponse
+
 
 # class IndexView(ListView):
 #     model = Person
@@ -83,3 +87,25 @@ class UsuarioDeleteView(DeleteView):
     model = User
     template_name = 'account/usuario_delete.html'
     success_url = reverse_lazy('account:usuario_list')
+
+
+def ListaProductos2(request):
+    if request.is_ajax:
+        search = request.GET.get('start', '')
+
+        personas = Persona.objects.filter(first_name__icontains=search)
+
+        results = []
+        for persona in personas:
+            persona_json = {}
+            persona_json['id'] = persona.id
+            persona_json['first_name'] = persona.first_name
+            persona_json['last_name'] = persona.last_name
+            results.append(persona_json)
+
+        data_json = json.dumps(results)
+
+    else:
+        data_json = 'fail'
+    mimetype = "application/json"
+    return HttpResponse(data_json, mimetype)

@@ -8,6 +8,10 @@ class Socio(models.Model):
     cod_socio = models.CharField(max_length=6)
     direccion = models.CharField(max_length=50, blank=True)
     ciudad = models.CharField(max_length=50, blank=True)
+    estado = models.BooleanField(default=True)
+
+    updated_at = models.DateTimeField("Updated at", auto_now=True)
+    created_at = models.DateTimeField("Created at", auto_now_add=True)
 
     class Meta:
         verbose_name = "Socio"
@@ -25,7 +29,6 @@ class Parcela(models.Model):
     area_desarrollo = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
     prod_estimado_tn = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
     prod_estimado_kg = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
-    certificacion_propuesta = models.CharField(max_length=5)
     total_parcelas = models.IntegerField()
     socio = models.ForeignKey(Socio, on_delete=models.CASCADE)
 
@@ -38,10 +41,10 @@ class Parcela(models.Model):
 
 
 class Acopio(models.Model):
-
-    fech_acopio = models.DateTimeField(auto_now_add=True)
     socio = models.ForeignKey(Socio, on_delete=models.CASCADE)
+    fech_acopio = models.DateTimeField(auto_now_add=True)
     estado = models.BooleanField(default=False)
+    n_ticket = models.IntegerField()
 
     class Meta:
         verbose_name = "Acopio"

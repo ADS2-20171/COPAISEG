@@ -4,6 +4,8 @@ from .views import (PersonaListView, PersonaCreateView,
                     PersonaUpdateView, PersonaDeleteView,
                     UsuarioListView, UsuarioCreateView,
                     UsuarioUpdateView, UsuarioDeleteView)
+from . import views
+
 
 
 urlpatterns = [
@@ -24,4 +26,6 @@ urlpatterns = [
         login_required(UsuarioUpdateView.as_view()), name='usuario_update'),
     url(r'^usuario/eliminar/(?P<pk>[^/]+)$',
         login_required(UsuarioDeleteView.as_view()), name='usuario_delete'),
+
+    url(r'^con_ajax_cadena/$', views.ListaProductos2),
 ]

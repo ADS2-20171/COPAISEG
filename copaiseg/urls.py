@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^account/', include('apps.account.urls', namespace='account')),
     url(r'^', include('apps.usuario.urls', namespace='usuario')),
+    url(r'^', include('apps.acopio.urls', namespace='acopio')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

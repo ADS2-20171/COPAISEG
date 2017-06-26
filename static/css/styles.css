@@ -20,7 +20,7 @@ h1 {
     border: none;
 }
 
-body {
+/*body {
     background: linear-gradient(
                 220deg,
                 seagreen,
@@ -33,7 +33,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
 
-}
+}*/
 
 img {
     max-width: 100%;

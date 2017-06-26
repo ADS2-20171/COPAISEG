@@ -23,6 +23,10 @@
       }
     </style>
 
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="{% static 'ajax_buscar.js' %}"></script>
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -190,7 +194,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Acopio</a></li>
+            <li><a href="{% url 'acopio:socio_list' %}">Listar Socio</a></li>
             <li><a href="#">Reporte</a></li>
           </ul>
         </li>

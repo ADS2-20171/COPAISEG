@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar nuevo Socio{% endblock %}
+{% block titleheader %}Registro de Socio{% endblock titleheader %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row">
+
+            <div class="form-group col-md-4">
+                <label for="">{{ form2.first_name.label }}</label>
+                {{ form2.first_name }}
+            </div>
+            <div class="form-group col-md-8">
+                <label for="">{{ form2.last_name.label }}</label>
+                {{ form2.last_name }}
+            </div>
+            <div class="form-group col-md-4">
+                <label for="">{{ form2.identity_type.label }}</label>
+                {{ form2.identity_type }}
+            </div>
+            <div class="form-group col-md-4">
+                <label for="">{{ form2.identity_num.label }}</label>
+                {{ form2.identity_num }}
+            </div>
+            <div class="form-group col-md-4">
+                <label for="" type="file">{{ form2.photo.label }}</label>
+                {{ form2.photo }}
+            </div>
+            <div class="form-group col-md-6">
+                <label for="" type="email">{{ form2.email.label }}</label>
+                {{ form2.email }}
+            </div>
+            <div class="form-group col-md-8">
+                <label for="" type="date">{{ form2.birth_date.label }}</label>
+                {{ form2.birth_date }}
+            </div>
+
+            <div class="form-group col-md-8">
+                <label for="" type="number">{{ form.cod_socio.label }}</label>
+                {{ form.cod_socio }}
+            </div>
+            <div class="form-group col-md-8">
+                <label for="" type="">{{ form.direccion.label }}</label>
+                {{ form.direccion }}
+            </div>
+            <div class="form-group col-md-8">
+                <label for="" type="">{{ form.ciudad.label }}</label>
+                {{ form.ciudad }}
+            </div>
+            <div class="form-group col-md-8">
+                <label for="" type="">{{ form.estado.label }}</label>
+                {{ form.estado }}
+            </div>
+
+        </div>
+    
+        <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>&nbsp;Guardar</button>
+        <a href="{% url 'account:persona_list' %}" class="btn btn-warning btn-sm"><i class="fa fa-ban fa-lg" aria-hidden="true"></i>&nbsp;Cancelar</a>
+    </form>
+{% endblock content %}
