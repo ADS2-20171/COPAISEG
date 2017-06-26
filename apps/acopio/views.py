@@ -23,7 +23,7 @@ class SocioCreateView(CreateView):
     template_name = 'socio/socio_form.html'
     form_class = SocioForm
     second_forms_class = PersonaForm
-    success_url = reverse_lazy('socio:socio_list')
+    success_url = reverse_lazy('acopio:socio_list')
 
     def get_context_data(self, **kwargs):
         context = super(SocioCreateView, self).get_context_data(**kwargs)
