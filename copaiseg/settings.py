@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.acopio',
     'apps.kaja',
     'apps.almacen',
+    'apps.pagopersonal',
 ]
 
 MIDDLEWARE = [
