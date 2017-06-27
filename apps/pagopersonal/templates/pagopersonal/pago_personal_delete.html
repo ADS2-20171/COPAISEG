@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <h3>¿Desea eliminar el pago por <b>"{{ object.cargo }}"</b>?</h3> 
+        <button class="btn btn-danger" type="submit"><i class="fa fa-check fa-lg" aria-hidden="true"></i>&nbsp;Sí, eliminar</button>
+        <a class= "btn btn-warning" href="{% url 'pagopersonal:pagopersonal_list' %}"><i class="fa fa-ban fa-lg" aria-hidden="true"></i>&nbsp;Cancelar</a>
+    </form>
+{% endblock %}

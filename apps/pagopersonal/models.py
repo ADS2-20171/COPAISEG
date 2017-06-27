@@ -18,7 +18,7 @@ class PagoPersonal(models.Model):
 
     cargo = models.CharField(max_length=20)
     monto = models.DecimalField(
-        max_digits=4, decimal_places=2, blank=True, null=True)
+        max_digits=10, decimal_places=2, blank=True, null=True)
 
     class Meta:
         verbose_name = "PagoPersonal"
@@ -40,7 +40,7 @@ class PersonalRegistro(models.Model):
         verbose_name_plural = "PersonalRegistros"
 
     def __str__(self):
-        return self.RUC, self.persona.first_name
+        return self.persona
 
 
 class Personal(models.Model):
