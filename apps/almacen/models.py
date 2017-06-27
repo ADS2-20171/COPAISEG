@@ -42,6 +42,9 @@ class unidadesmedida(models.Model):
 class Producto(models.Model):
 
     nombre = models.CharField(max_length=100)
+    PrecioCompra = models.DecimalField(max_digits=20, decimal_places=2)
+    PecioVenta = models.DecimalField(max_digits=20, decimal_places=2)
+    Igv = models.DecimalField(max_digits=20, decimal_places=2)
     unidadM = models.ForeignKey(unidadesmedida, on_delete=models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     detalle = models.CharField(max_length=200)
