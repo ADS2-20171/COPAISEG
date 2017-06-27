@@ -1,0 +1,11 @@
+************* Module apps.account.views
+apps\account\views.py:45: [W0221(arguments-differ), PersonaUpdateView.dispatch] Parameters differ from overridden 'dispatch' method
+apps\account\views.py:46: [W0201(attribute-defined-outside-init), PersonaUpdateView.dispatch] Attribute 'autor_id' defined outside __init__
+apps\account\views.py:81: [W0221(arguments-differ), UsuarioUpdateView.dispatch] Parameters differ from overridden 'dispatch' method
+apps\account\views.py:82: [W0201(attribute-defined-outside-init), UsuarioUpdateView.dispatch] Attribute 'autor_id' defined outside __init__
+apps\account\views.py:10: [C0411(wrong-import-order), ] standard import "import json" should be placed before "from django.core.urlresolvers import reverse_lazy"
+apps\account\views.py:12: [C0411(wrong-import-order), ] external import "from django.http import HttpResponse" should be placed before "from .forms import PersonaForm"
+
+------------------------------------------------------------------
+Your code has been rated at 9.53/10 (previous run: 9.53/10, +0.00)
+

@@ -34,8 +34,8 @@
                 <td>{{ d.ciudad }}</td>
                 <td>{{ d.estado }}</td>
                 <td>
-                    <a class="btn btn-info btn-sm" href="#"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i>&nbsp; Edit</a>
-                    <a class="btn btn-danger btn-sm text-bold" href="#"><i class="fa fa-trash fa-lg" aria-hidden="true"></i>&nbsp; Delete</a>
+                    <a class="btn btn-info btn-sm" href="{% url 'acopio:socio_update' d.id %}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i>&nbsp; Edit</a>
+                    <a class="btn btn-danger btn-sm text-bold" href="{% url 'acopio:socio_delete' d.id %}"><i class="fa fa-trash fa-lg" aria-hidden="true"></i>&nbsp; Delete</a>
                 </td>
             </tr>
             {% endfor %}
