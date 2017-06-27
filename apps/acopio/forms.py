@@ -2,7 +2,7 @@
 from django import forms
 
 from apps.account.models import Persona
-from .models import Socio
+from .models import Socio, Parcela
 
 
 class PersonaForm(forms.ModelForm):
@@ -46,3 +46,12 @@ class SocioForm(forms.ModelForm):
         #     'identity_num': forms.TextInput(attrs={'class': 'form-control'}),
         #     'email': forms.TextInput(attrs={'class': 'form-control'}),
         # }
+
+
+class ParcelaForm(forms.ModelForm):
+
+    class Meta:
+        model = Parcela
+        fields = ['codigo', 'ubicacion', 'area_cultivo', 'area_desarrollo',
+                  'prod_estimado_tn', 'prod_estimado_kg', 'total_parcelas',
+                  'socio']

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Parcelas{% endblock %}
+{% block titleheader %}Lista de Parcelas{% endblock titleheader %}
+
+{% block content %}
+
+{% csrf_token %}
+
+<!--div class=”form-group”>
+    <input type="text" id="busqueda" name="busqueda" placeholder="Buscar"style="width: 400px;">
+    <p id="resultado_busqueda"></p>
+</div-->
+
+<div class="ui-widget">
+  <label for="tags1">Array de Cadenas: </label>
+  <input id="tags1">
+ </div>
+
+<div style="margin-bottom: 1em;">
+    <a class="btn btn-success" href="{% url 'acopio:parcela_add' %}">
+        <i class="fa fa-plus-circle fa-lg"></i>&nbsp; Nueva Parcela
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hovered ">
+        <thead>
+            <tr>
+                <th class="text-center">N°</th>
+                <th class="text-center">Nombres y Apellidos</th>
+                <th class="text-center">N° DNI</th>
+                <th class="text-center">E-mail</th>
+                <th class="text-center">Fecha de Nacimiento</th>
+                <th class="text-center">Foto</th>
+                <th class="btn-actions col-blocked text-center">Acciónes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in object_list %}
+            <tr>
+                <td>{{ d.id }}</td>
+                <td>{{ d.codigo }}</td>
+                <td>{{ d.area_cultivo }}</td>
+                <td>{{ d.area_desarrollo }}</td>
+                <td>{{ d.prod_estimado_tn }}</td>
+                <td>{{ d.prod_estimado_kg }}</td>
+                <td>{{ d.total_parcelas }}</td>
+                <td>{{ d.socio }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{% url 'acopio:parcela_update' d.id %}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i>&nbsp; Edit</a>
+                    <a class="btn btn-danger btn-sm text-bold" href="{% url 'acopio:parcela_delete' d.id %}"><i class="fa fa-trash fa-lg" aria-hidden="true"></i>&nbsp; Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if is_paginated %}
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; Previous</a></li>
+        {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+        {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+                <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}">Next &raquo;</a></li>
+        {% else %}
+            <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+    </ul>
+{% endif %}
+    
+{% endblock %}
