@@ -33,6 +33,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+PROJECT_APPS = [
+    'apps.account',
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,13 +46,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # add
     'crispy_forms',
+    'django_jenkins',
     # add plus
-    'apps.account',
+    # 'apps.account',
     'apps.usuario',
     'apps.acopio',
     'apps.kaja',
     'apps.almacen',
-]
+]  + PROJECT_APPS
+
+JENKINS_TASKS = (
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_pylint',
+    'django_jenkins.tasks.run_pyflakes',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
