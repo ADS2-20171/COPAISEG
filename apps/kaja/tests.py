@@ -1,16 +1,16 @@
 from django.test import TestCase
-from .models import Animal
+from .models import Cargo
 
 
-class AnimalTestCase(TestCase):
+class CargoTestCase(TestCase):
 
     def setUp(self):
-        Animal.objects.create(name="lion", sound="roar")
-        Animal.objects.create(name="cat", sound="meow")
+        Cargo.objects.create(tipo_cargo="pago", monto_ingreso=4000)
+        Cargo.objects.create(tipo_cargo="deposito", monto_ingreso=20000)
 
-    def test_animals_can_speak(self):
-        """Animals that can speak are correctly identified"""
-        lion = Animal.objects.get(name="lion")
-        cat = Animal.objects.get(name="cat")
-        self.assertEqual(lion.speak(), 'The lion says "roar"')
-        self.assertEqual(cat.speak(), 'The cat says "meow"')
+    def test_Cargos_do_depos(self):
+        """Cargos that can speak are correctly identified"""
+        pago = Cargo.objects.get(tipo_cargo="pago")
+        deposito = Cargo.objects.get(tipo_cargo="deposito")
+        self.assertEqual(pago.depos(), 'Por concepto de pago entro la suma de "4000.00"')
+        self.assertEqual(deposito.depos(), 'Por concepto de deposito entro la suma de"20000.00"')

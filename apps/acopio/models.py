@@ -29,7 +29,7 @@ class Parcela(models.Model):
     area_desarrollo = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
     prod_estimado_tn = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
     prod_estimado_kg = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
-    total_parcelas = models.IntegerField()
+    total_parcelas = models.IntegerField(blank=True, null=True)
     socio = models.ForeignKey(Socio, on_delete=models.CASCADE)
 
     class Meta:

@@ -29,29 +29,34 @@ class Categoria(models.Model):
 
 class unidadesmedida(models.Model):
 
-    UnidadMedida = models.CharField(max_length=100)
+    unidadMedida = models.CharField(max_length=100)
+    prefijo = models.CharField(max_length=20)
 
     class Meta:
-        verbose_name = "Unidades de medida"
+        verbose_name = "Unidade de medida"
         verbose_name_plural = "Unidades de medida"
 
     def __str__(self):
-        return self.unidaM
+        return self.unidadMedida
+
+    def have(self):
+        return 'Los %s su prefijo es "%s"' % (self.unidadMedida, self.prefijo)
 
 
 class Producto(models.Model):
 
     nombre = models.CharField(max_length=100)
-    PrecioCompra = models.DecimalField(max_digits=20, decimal_places=2)
-    PecioVenta = models.DecimalField(max_digits=20, decimal_places=2)
-    Igv = models.DecimalField(max_digits=20, decimal_places=2)
-    unidadM = models.ForeignKey(unidadesmedida, on_delete=models.CASCADE)
+    precioCompra = models.DecimalField(max_digits=20, decimal_places=2)
+    precioVenta = models.DecimalField(max_digits=20, decimal_places=2)
+    igv = models.DecimalField(max_digits=20, decimal_places=2)
+    unidadMedida = models.ForeignKey(unidadesmedida, on_delete=models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     detalle = models.CharField(max_length=200)
 
     class Meta:
-        verbose_name = "Productos"
+        verbose_name = "Producto"
         verbose_name_plural = "Productos"
 
     def __str__(self):
-        return self.inidadM.categoria
+        return self.unidadMedida.prefijo
+

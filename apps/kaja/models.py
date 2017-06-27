@@ -15,6 +15,9 @@ class Cargo(models.Model):
     def __str__(self):
         return self.tipo_cargo
 
+    def depos(self):
+        return 'Por concepto de %s entro la suma de "%s"' % (self.tipo_cargo, self.monto_ingreso)
+
 
 class Balance(models.Model):
 
