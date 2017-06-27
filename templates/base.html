@@ -206,9 +206,15 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+       
+   <ul class="treeview-menu">
+            <li><a href="{% url 'kaja:moneda_list' %}">Listar Moneda</a></li>
+            <li><a href="#">Reporte</a></li>
+          </ul> 
           <ul class="treeview-menu">
-            <li><a href="#">Factura</a></li>
-          </ul>
+            <li><a href="{% url 'account:usuario_list' %}">Nuevo Comprobante de Boucher</a></li>
+            <li><a href="#">Lista</a></li>
+            </ul>
         </li>
         <li class="treeview">
           <a href="#"><i class="fa fa-cubes fa-lg"></i><span>Almacen</span>

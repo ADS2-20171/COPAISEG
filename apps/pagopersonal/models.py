@@ -4,6 +4,7 @@ from apps.account.models import Persona
 
 class RegistroAsistencia(models.Model):
 
+
     fecha_acceso = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -27,6 +28,9 @@ class PagoPersonal(models.Model):
     def __str__(self):
         return self.cargo
 
+    def pays(self):
+        return 'Yo como %s gano "%s"' % (self.cargo, self.monto)
+
 
 class PersonalRegistro(models.Model):
 
@@ -40,7 +44,7 @@ class PersonalRegistro(models.Model):
         verbose_name_plural = "PersonalRegistros"
 
     def __str__(self):
-        return self.persona
+        return self.persona.first_name
 
 
 class Personal(models.Model):
@@ -83,7 +87,7 @@ class DetalleReciboHonorario(models.Model):
         verbose_name_plural = "DetalleReciboHonorarios"
 
     def __str__(self):
-        return self.suma_de
+        return self.concepto
 
 
 class ReciboHonorario(models.Model):

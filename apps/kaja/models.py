@@ -13,7 +13,10 @@ class Cargo(models.Model):
         verbose_name_plural = "Cargos"
 
     def __str__(self):
-        return self.monto_ingreso
+        return self.tipo_cargo
+
+    def depos(self):
+        return 'Por concepto de %s entro la suma de "%s"' % (self.tipo_cargo, self.monto_ingreso)
 
 
 class Balance(models.Model):
@@ -60,5 +63,5 @@ class DetalleCaja(models.Model):
         verbose_name = "DetalleCaja"
         verbose_name_plural = "Detalles Caja"
 
-    def __str__(self):
+    def __unicode__(self):
         return self.cantidad
