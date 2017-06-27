@@ -35,6 +35,9 @@ ALLOWED_HOSTS = []
 
 PROJECT_APPS = [
     'apps.account',
+    'apps.kaja',
+    'apps.almacen',
+    'apps.pagopersonal',
 ]
 
 INSTALLED_APPS = [
@@ -51,9 +54,9 @@ INSTALLED_APPS = [
     # 'apps.account',
     'apps.usuario',
     'apps.acopio',
-    'apps.kaja',
-    'apps.almacen',
-    'apps.pagopersonal',
+    # 'apps.kaja',
+    # 'apps.almacen',
+    # 'apps.pagopersonal',
 
 ]  + PROJECT_APPS
 
