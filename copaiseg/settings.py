@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'apps.acopio',
     'apps.kaja',
     'apps.almacen',
+    'apps.pagopersonal',
+
 ]  + PROJECT_APPS
 
 JENKINS_TASKS = (
