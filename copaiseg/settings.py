@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     # 'apps.almacen',
     # 'apps.pagopersonal',
 
-]  + PROJECT_APPS
+] + PROJECT_APPS
 
 JENKINS_TASKS = (
     'django_jenkins.tasks.run_pep8',
