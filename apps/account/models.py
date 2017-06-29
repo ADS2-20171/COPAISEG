@@ -30,3 +30,6 @@ class Persona(models.Model):
 
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
+
+    def have(self):
+        return 'Yo %s y mi apellido es "%s"' % (self.first_name, self.last_name)
