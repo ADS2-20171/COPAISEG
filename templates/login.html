@@ -8,23 +8,36 @@
 {% block styles %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock styles %}
+<style type="text/css">
+    body {
+        background: linear-gradient(
+                220deg,
+                seagreen,
+                rgba(0,0,0,.8)
+                );
+        background-image: url("http://www.timelyintervention.co.uk/wp-content/uploads/2014/06/Consulting.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+</style>
 </head>
 <body>
 
-<form class="login-form" method="POST">
-    <link rel="stylesheet" href="../static/css/styles.css">
-    <!--img src="../../static/img/logo.png" height="100" width="100"-->
+    <form class="login-form" method="POST">
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <!--img src="../../static/img/logo.png" height="100" width="100"-->
 
-    {% csrf_token %}
-    {{ form.username }}
-    {{ form.username.errors }}
+        {% csrf_token %}
+        {{ form.username }}
+        {{ form.username.errors }}
 
-    {{ form.password }}
-    {{ form.password.errors }}
-    
-    <input class="login-form_submit" type="submit" value="Ingresar">
-    <a class="login-form_link" href="{% url 'usuario:index' %}">Registrarse</a>
-</form>
+        {{ form.password }}
+        {{ form.password.errors }}
+        
+        <input class="login-form_submit" type="submit" value="Ingresar">
+        <a class="login-form_link" href="{% url 'usuario:index' %}">Registrarse</a>
+    </form>
  
 </body>
 </html>

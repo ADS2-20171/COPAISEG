@@ -188,46 +188,38 @@
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{% url 'usuario:index' %}"><i class="fa fa-home fa-lg"></i> <span>Home</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-cart-plus fa-lg"></i> <span>Acopio</span>
+          <a href="#"><i class="fa fa-user-secret" aria-hidden="true"></i><span>Socios</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{% url 'acopio:socio_list' %}">Listar Socio</a></li>
-            <li><a href="{% url 'acopio:parcela_list' %}">Listar Parcela</a></li>
-            <li><a href="#">Listar Acopio</a></li>
-            <li><a href="#">Reporte Acopio</a></li>
+            <li><a href="{% url 'acopio:socio_add' %}">Nuevo      <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+            <li><a href="{% url 'acopio:socio_list' %}">Listar</a></li>
           </ul>
         </li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-calculator fa-lg"></i> <span>Caja</span>
+          <a href="#"><i class="fa fa-crop fa-lg"></i> <span>Parcela</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Factura</a></li>
+            <li><a href="{% url 'acopio:parcela_list' %}">Usuario</a></li>
+            <li><a href="{% url 'acopio:parcela_list' %}">Persona</a></li>
           </ul>
         </li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-cubes fa-lg"></i><span>Almacen</span>
+          <a href="#"><i class="fa fa-cart-plus fa-lg"></i><span>Acopio</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Kardex</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-money fa-lg"></i><span>Pagos</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Factura</a></li>
+            <li><a href="#">Nuevo Acopio</a></li>
+            <li><a href="#">Realizar Acopio</a></li>
+            <li><a href="#">Lista de Acopio</a></li>
+            <li><a href="#"></a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -238,7 +230,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{% url 'account:usuario_list' %}">Usuario</a></li>
-            <li><a href="{% url 'account:persona_list' %}">Persona</a></li>
           </ul>
         </li>
       </ul>
