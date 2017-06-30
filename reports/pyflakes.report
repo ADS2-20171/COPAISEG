@@ -1,3 +1,0 @@
-apps\kaja\views.py:1: [E] PYFLAKES:'django.shortcuts.render' imported but unused
-apps\almacen\views.py:1: [E] PYFLAKES:'django.shortcuts.render' imported but unused
-apps\pagopersonal\views.py:1: [E] PYFLAKES:'django.shortcuts.render' imported but unused

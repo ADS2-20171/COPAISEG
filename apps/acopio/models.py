@@ -25,10 +25,14 @@ class Parcela(models.Model):
 
     codigo = models.CharField(max_length=8)
     ubicacion = models.CharField(max_length=20)
-    area_cultivo = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
-    area_desarrollo = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
-    prod_estimado_tn = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
-    prod_estimado_kg = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
+    area_cultivo = models.DecimalField(
+        max_digits=4, decimal_places=2, blank=True, null=True)
+    area_desarrollo = models.DecimalField(
+        max_digits=4, decimal_places=2, blank=True, null=True)
+    prod_estimado_tn = models.DecimalField(
+        max_digits=4, decimal_places=2, blank=True, null=True)
+    prod_estimado_kg = models.DecimalField(
+        max_digits=4, decimal_places=2, blank=True, null=True)
     total_parcelas = models.IntegerField(blank=True, null=True)
     socio = models.ForeignKey(Socio, on_delete=models.CASCADE)
 
@@ -61,7 +65,8 @@ class DetalleAcopio(models.Model):
     precio_uni = models.DecimalField(
         'Precio Unitario', max_digits=20, decimal_places=2)
     total_pagar = models.DecimalField(
-        'Precio a Pagar', max_digits=20, decimal_places=2)
+        'Precio a Pagar', max_digits=20, decimal_places=2, blank=True, null=True)
+    # total_importe = models.aggregate(Sum('importe'))
 
     class Meta:
         verbose_name = "Detalle  Acopio"
@@ -71,3 +76,7 @@ class DetalleAcopio(models.Model):
         return "%s %s %s" % (self.acopio.socio.persona.first_name,
                              self.acopio.socio.persona.last_name,
                              self.parcela.codigo)
+
+    def _get_importe(self):
+        return self.precio_uni * self.total_pagar
+    importe = property(_get_importe)

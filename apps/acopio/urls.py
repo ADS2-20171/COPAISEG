@@ -4,7 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .views import (SocioListView, SocioCreateView,
                     SocioUpdateView, SocioDeleteView,
                     ParcelaListView, ParcelaCreateView,
-                    ParcelaUpdateView, ParcelaDeleteView)
+                    ParcelaUpdateView, ParcelaDeleteView,
+                    AcopioDetalleListView, AcopioDetalleCreateView)
 
 
 urlpatterns = [
@@ -24,4 +25,10 @@ urlpatterns = [
         login_required(ParcelaUpdateView.as_view()), name='parcela_update'),
     url(r'^parcela/eliminar/(?P<pk>[^/]+)$',
         login_required(ParcelaDeleteView.as_view()), name='parcela_delete'),
+
+    # URLS ACOPIO
+    url(r'^acopio/listar/$', login_required(AcopioDetalleListView.as_view()), name="acopio_list"),
+    url(r'^acopio/crear/$', login_required(AcopioDetalleCreateView.as_view()), name="acopio_add"),
+    # url(r'^acopio/editar/(?P<pk>[^/]+)$',
+    #     login_required(AcopioDetalleUpdateView.as_view()), name='acopio_update'),
 ]

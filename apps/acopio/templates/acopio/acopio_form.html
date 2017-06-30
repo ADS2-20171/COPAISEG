@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar nuevo Socio{% endblock %}
+{% block titleheader %}Registro de Socio{% endblock titleheader %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row">
+
+            <div class="form-group col-md-4">
+                <label for="">{{ form.socio.label }}</label>
+                {{ form.socio }}
+            </div>
+            <div class="form-group col-md-4">
+                <label for="">{{ form.n_ticket.label }}</label>
+                {{ form.n_ticket }}
+            </div>
+
+            <div class="form-group col-md-8">
+                <label for="" type="number">{{ form2.parcela.label }}</label>
+                {{ form2.parcela }}
+            </div>
+            <div class="form-group col-md-8">
+                <label for="" type="">{{ form2.acopio.label }}</label>
+                {{ form2.acopio }}
+            </div>
+            <div class="form-group col-md-8">
+                <label for="" type="">{{ form2.kilos.label }}</label>
+                {{ form2.kilos }}
+            </div>
+            <div class="form-group col-md-8">
+                <label for="" type="">{{ form2.precio_uni.label }}</label>
+                {{ form2.precio_uni }}
+            </div>
+            <div class="form-group col-md-8">
+                <label for="" type="">{{ form2.total_pagar.label }}</label>
+                {{ form2.total_pagar }}
+            </div>
+            <div class="form-group col-md-8">
+                <label for="">{{ form.estado.label }}</label>
+                {{ form.estado }}
+            </div>
+
+        </div>
+    
+        <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>&nbsp;Guardar</button>
+        <a href="{% url 'acopio:acopio_list' %}" class="btn btn-warning btn-sm"><i class="fa fa-ban fa-lg" aria-hidden="true"></i>&nbsp;Cancelar</a>
+    </form>
+{% endblock content %}

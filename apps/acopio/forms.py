@@ -2,7 +2,7 @@
 from django import forms
 
 from apps.account.models import Persona
-from .models import Socio, Parcela
+from .models import Socio, Parcela, Acopio, DetalleAcopio
 
 
 class PersonaForm(forms.ModelForm):
@@ -55,3 +55,29 @@ class ParcelaForm(forms.ModelForm):
         fields = ['codigo', 'ubicacion', 'area_cultivo', 'area_desarrollo',
                   'prod_estimado_tn', 'prod_estimado_kg', 'total_parcelas',
                   'socio']
+
+
+class AcopioForm(forms.ModelForm):
+
+    class Meta:
+        model = Acopio
+        fields = ['socio', 'estado', 'n_ticket']
+        labels = {
+            'socio': 'Proveedor ',
+            'estado': 'Pagado?: ',
+            'n_ticket': 'N° Ticket: ',
+        }
+
+
+class DetalleAcopioForm(forms.ModelForm):
+
+    class Meta:
+        model = DetalleAcopio
+        fields = ['parcela', 'acopio', 'kilos', 'precio_uni', 'total_pagar']
+        labels = {
+            'parcela': 'Parcela: ',
+            'acopio': 'Acopio:',
+            'kilos': 'Cantidad en Kg.: ',
+            'precio_uni': 'Acopiado a: ',
+            'total_pagar': 'Total a pagar: ',
+        }
